@@ -7,6 +7,11 @@ use Alley\SimpleRoles\Contracts\Role as RoleContract;
 
 class Role implements RoleContract
 {
+    /**
+     * Role name.
+     *
+     * @var string
+     */
     protected $role;
 
     /**
@@ -19,10 +24,15 @@ class Role implements RoleContract
     public function __construct(string $role)
     {
         $this->role = $role;
-        $this->capabilities = collect(config("roles.{$this->role}"));
+        $this->capabilities = app('roles')->getCapabilitiesForRole($role);
     }
 
-    public function capabilities()
+    /**
+     * Get a list of the role's capabilities.
+     *
+     * @return array
+     */
+    public function capabilities(): array
     {
         return $this->capabilities->all();
     }
@@ -33,7 +43,7 @@ class Role implements RoleContract
      * @param  iterable|string  $capabilities
      * @return bool
      */
-    public function can($capabilities)
+    public function can($capabilities): bool
     {
         return $this->capabilities->contains('*')
             || collect($capabilities)->every(function ($capability) {
@@ -47,7 +57,7 @@ class Role implements RoleContract
      * @param  iterable|string  $capabilities
      * @return bool
      */
-    public function cannot($capabilities)
+    public function cannot($capabilities): bool
     {
         return ! $this->can($capabilities);
     }

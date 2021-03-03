@@ -64,8 +64,8 @@ class SimpleRolesServiceProvider extends ServiceProvider
         ], 'roles.config');
 
         $this->publishes([
-            __DIR__ . '/../migrations/add_role_to_users_table.php' => database_path(
-                sprintf('migrations/%s_add_role_to_users_table.php', date('Y_m_d_His'))
+            __DIR__ . '/../migrations/add_roles_to_users_table.php' => database_path(
+                sprintf('migrations/%s_add_roles_to_users_table.php', date('Y_m_d_His'))
             ),
         ]);
     }
