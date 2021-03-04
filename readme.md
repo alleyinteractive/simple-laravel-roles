@@ -23,9 +23,9 @@ $ composer require alleyinteractive/simple-laravel-roles
 ## Setup and Configuration
 
 1. Once the package is installed, you can publish the package files using artisan:
-```bash
-php artisan vendor:publish --provider="Alley\SimpleRoles\SimpleRolesServiceProvider"
-```
+    ```bash
+    php artisan vendor:publish --provider="Alley\SimpleRoles\SimpleRolesServiceProvider"
+    ```
     This will add two files to your application:
 
     * `config/roles.php` is where you'll define your roles.
