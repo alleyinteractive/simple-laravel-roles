@@ -29,7 +29,7 @@ $ composer require alleyinteractive/simple-laravel-roles
     This will add two files to your application:
 
     * `config/roles.php` is where you'll define your roles.
-    * `database/migrations/<date>_add_role_to_users_table.php` adds a `roles` field to the `users` table. Delete this file if it doesn't apply to your use case.
+    * `database/migrations/<date>_add_roles_to_users_table.php` adds a `roles` column to the `users` table. Delete this file if it doesn't apply to your use case.
 2. Configure your roles and capabilities in `config/roles.php`.
 3. Add the `roles` column to any models that will have roles.
 4. Add the `Alley\SimpleRoles\HasRoles` trait to any models that will have roles.
