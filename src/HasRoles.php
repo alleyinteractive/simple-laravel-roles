@@ -56,7 +56,7 @@ trait HasRoles
      */
     public function hasRole(string $role): bool
     {
-        return in_array($role, $this->roles, true);
+        return in_array($role, $this->roles ?? [], true);
     }
 
     /**
@@ -97,7 +97,7 @@ trait HasRoles
     public function removeRole(string $role): bool
     {
         return $this->setRoles(
-            array_filter($this->roles, function($existingRole) use ($role) {
+            array_filter($this->roles ?? [], function($existingRole) use ($role) {
                 return $role !== $existingRole;
             })
         );
